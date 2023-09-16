@@ -39,6 +39,7 @@ for image in images:
 
         cv2.putText(img_arr, f"Class: {CLASSES[class_index]}", (5, 25), cv2.FONT_HERSHEY_PLAIN, 2, (200, 20, 50), 2)
 
+        img_arr = cv2.cvtColor(img_arr, cv2.COLOR_BGR2RGB)
         images_list.append(img_arr)
         # cv2.imshow("res", img_arr)
         # cv2.waitKey(0)
@@ -46,6 +47,6 @@ for image in images:
 
 fig = plt.figure(figsize=(10, 10))
 for i in range(len(images_list)):
-    plt.subplot(3, 3, i + 1)
+    plt.subplot(3, 4, i + 1)
     plt.imshow(images_list[i])
 plt.show()
