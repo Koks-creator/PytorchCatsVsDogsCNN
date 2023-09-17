@@ -13,7 +13,7 @@ CLASSES = ["cat", "dog"]
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model = torch.jit.load(rf"{MODELS_FOLDER}/{MODEL_NAME}", map_location=torch.device('cpu'))
+model = torch.jit.load(rf"{MODELS_FOLDER}/{MODEL_NAME}", map_location=device)
 model.eval()
 
 data_transforms = transforms.Compose([
