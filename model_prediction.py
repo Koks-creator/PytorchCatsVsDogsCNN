@@ -33,7 +33,6 @@ for image in images:
     custom_image_transformed = data_transforms(pil_image)
 
     with torch.no_grad():
-        custom_image_transformed_with_batch_size = custom_image_transformed.unsqueeze(dim=0)
         custom_image_pred = model(custom_image_transformed.unsqueeze(dim=0).to(device))
         class_index = custom_image_pred.round().int().item()
 
